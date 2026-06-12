@@ -1,5 +1,3 @@
-
-
 <p>Refuge helps you protect photos of the people you love before you share them. We built Refuge
 to collect as little as possible. This policy explains exactly what happens to your photos and data.</p>
 
