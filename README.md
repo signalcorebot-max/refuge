@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Refuge — Privacy Policy</title>
-<style>
-  body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-         max-width: 760px; margin: 40px auto; padding: 0 18px; line-height: 1.6; color: #1b1b1b; }
-  h1 { font-size: 1.7rem; } h2 { font-size: 1.2rem; margin-top: 1.8rem; }
-  code { background: #f2f2f2; padding: 1px 5px; border-radius: 4px; }
-  .muted { color: #666; }
-</style>
-</head>
-<body>
-<h1>Refuge — Privacy Policy</h1>
-<p class="muted">Last updated: June 12, 2026</p>
+
 
 <p>Refuge helps you protect photos of the people you love before you share them. We built Refuge
 to collect as little as possible. This policy explains exactly what happens to your photos and data.</p>
