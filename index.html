@@ -4,24 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Refuge — Protect your family's photos from AI abuse</title>
-<meta name="description" content="Refuge strips hidden location data, shields faces, and adds a best-effort AI-edit deterrent so you can share your family's photos more safely. Private by design — we keep nothing.">
+<meta name="description" content="Refuge strips hidden location data, shields faces, and adds a best-effort AI-edit deterrent so your family's photos are harder to manipulate. Drag the slider to see what it does. Private by design — we keep nothing.">
 <meta property="og:title" content="Refuge — Protect your family's photos from AI abuse">
-<meta property="og:description" content="Strip hidden location data, shield faces, and deter AI 'nudify' edits. Private by design — we keep nothing.">
+<meta property="og:description" content="Drag the slider to see it: when AI tries to manipulate a Refuge-protected photo, the result falls apart. Private by design.">
 <meta property="og:type" content="website">
 <style>
   :root{ --bg:#12161C; --card:#1b2129; --gold:#E8B04B; --text:#f2f2f2; --muted:#9aa3ad; --line:#232b34; }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
   .wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-  header{text-align:center;padding:66px 20px 38px;}
+  header{text-align:center;padding:60px 20px 30px;}
   header h1{font-size:2.9rem;margin:14px 0 6px;letter-spacing:-.5px;}
-  header p.tag{font-size:1.18rem;color:var(--muted);max-width:580px;margin:0 auto;}
-  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+  header p.tag{font-size:1.18rem;color:var(--muted);max-width:600px;margin:0 auto;}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
   .btn{display:inline-block;padding:13px 24px;border-radius:12px;text-decoration:none;font-weight:600;}
   .btn.primary{background:var(--gold);color:#12161C;}
   .btn.ghost{border:1px solid #2f3742;color:var(--gold);}
   .cap{color:var(--muted);font-size:.85rem;margin-top:10px;}
-  section{padding:36px 0;border-top:1px solid var(--line);}
+  section{padding:34px 0;border-top:1px solid var(--line);}
   h2{font-size:1.55rem;margin:0 0 6px;}
   .lead{color:var(--muted);margin-top:0;}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px;}
@@ -37,6 +37,16 @@
   footer{text-align:center;color:var(--muted);font-size:.85rem;padding:42px 20px;border-top:1px solid var(--line);}
   footer a{color:var(--gold);}
   .shield{display:block;margin:0 auto;}
+  /* before/after slider */
+  .ba{position:relative;max-width:480px;margin:14px auto 0;aspect-ratio:1/1;border-radius:14px;overflow:hidden;touch-action:none;user-select:none;cursor:ew-resize;}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+  .ba-top{position:absolute;top:0;left:0;height:100%;width:50%;overflow:hidden;}
+  .ba-top img{width:480px;max-width:none;height:100%;object-fit:cover;}
+  .ba-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-1px);}
+  .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--gold);color:#12161C;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;}
+  .ba-tag{position:absolute;top:8px;padding:3px 8px;border-radius:6px;background:rgba(18,22,28,.8);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.04em;}
+  .ba-tl{left:8px;} .ba-tr{right:8px;}
+  .ba-hint{text-align:center;color:var(--gold);font-size:.85rem;margin-top:10px;font-weight:600;}
 </style>
 </head>
 <body>
@@ -56,8 +66,33 @@
   </header>
 
   <section>
+    <h2>See what it does</h2>
+    <p class="lead">When someone runs an AI tool to manipulate a photo, a Refuge-protected version comes out
+       broken instead of believable. Drag to compare the same AI edit, without and with Refuge:</p>
+    <div class="ba" id="ba">
+      <img src="before_with.png" alt="AI edit of a Refuge-protected photo — distorted">
+      <div class="ba-top" id="batop"><img src="before_without.png" alt="AI edit without protection — clean"></div>
+      <div class="ba-line" id="baline"><div class="ba-knob">&#9666; &#9656;</div></div>
+      <span class="ba-tag ba-tl">WITHOUT</span>
+      <span class="ba-tag ba-tr">WITH REFUGE</span>
+    </div>
+    <p class="ba-hint">&#8596; Drag the slider</p>
+    <p class="cap" style="text-align:center">Example on a test image (a synthetic, not-real person). Results vary — protection is best-effort, not a guarantee.</p>
+  </section>
+
+  <section>
+    <h2>We don't just claim it — we test it</h2>
+    <p class="lead">We run Refuge's protection against multiple different, widely-used AI image-manipulation
+       tools — not just one — including after a photo has been re-saved or re-shared. In our testing, it
+       disrupted every tool we tried. Honest truth: once a photo is public, no tool can promise total
+       protection, and a determined attacker may still find a way. Refuge is a strong, best-effort layer —
+       and we keep testing and strengthening it.</p>
+  </section>
+
+  <section>
     <h2>Why this matters</h2>
-    <p class="lead">AI tools can turn an ordinary, public photo of anyone — a child, a partner, a friend — into a fake explicit image in seconds. The scale is staggering:</p>
+    <p class="lead">AI tools can turn an ordinary, public photo of anyone — a child, a partner, a friend —
+       into a fake explicit image in seconds. The scale is staggering:</p>
     <div class="stats">
       <div class="stat"><div class="n">~190/min</div><div class="d">sexual images one AI tool generated — about 3 million in just 11 days.</div><div class="s">— CCDH, 2026</div></div>
       <div class="stat"><div class="n">1,325%</div><div class="d">one-year surge in reports of AI-generated child sexual abuse material.</div><div class="s">— NCMEC, 2024</div></div>
@@ -78,12 +113,23 @@
 
   <section>
     <h2>We keep nothing</h2>
-    <p class="note">The basic protections run entirely on your phone — those photos never leave your device. The optional Max Protection sends one photo over an encrypted connection, applies protection, sends it right back, and <strong>deletes it immediately</strong>. Never stored, never logged, never used to train anything.</p>
+    <p class="note">The basic protections run entirely on your phone — those photos never leave your device.
+       The optional Max Protection sends one photo over an encrypted connection, applies protection, sends it
+       right back, and <strong>deletes it immediately</strong>. Never stored, never logged, never used to train anything.</p>
+  </section>
+
+  <section>
+    <h2>The only one of its kind</h2>
+    <p class="lead">The research behind this kind of protection has mostly lived in universities and labs, on
+       desktop computers. As far as we know, Refuge is the only app that puts it in everyday hands — something
+       you can use in seconds, right from your phone.</p>
   </section>
 
   <section>
     <h2>Honest by design</h2>
-    <p class="lead">No tool can guarantee a photo is safe once it's public. Refuge's protections are best-effort — they make abuse harder and reduce exposure. The strongest protection is limiting what you share publicly. We tell you the truth so you can make good choices.</p>
+    <p class="lead">No tool can guarantee a photo is safe once it's public. Refuge's protections are best-effort —
+       they make abuse harder and reduce exposure. The strongest protection is limiting what you share publicly.
+       We tell you the truth so you can make good choices.</p>
   </section>
 
   <footer>
@@ -91,5 +137,18 @@
     Questions? <a href="mailto:signalcorebot@gmail.com">signalcorebot@gmail.com</a> &middot; <a href="privacy.html">Privacy Policy</a>
   </footer>
 </div>
+
+<script>
+  (function(){
+    var ba=document.getElementById('ba'), top=document.getElementById('batop'),
+        topImg=top.querySelector('img'), line=document.getElementById('baline');
+    function setW(){ topImg.style.width = ba.clientWidth + 'px'; }
+    function setF(f){ f=Math.max(0.04,Math.min(0.96,f)); top.style.width=(f*100)+'%'; line.style.left=(f*100)+'%'; }
+    function pos(e){ var r=ba.getBoundingClientRect(); var cx=e.touches?e.touches[0].clientX:e.clientX; setF((cx-r.left)/r.width); }
+    setW(); setF(0.5); window.addEventListener('resize',setW);
+    ba.addEventListener('mousedown',function(e){ pos(e); var m=function(ev){pos(ev);}, u=function(){document.removeEventListener('mousemove',m);document.removeEventListener('mouseup',u);}; document.addEventListener('mousemove',m); document.addEventListener('mouseup',u); });
+    ba.addEventListener('touchstart',pos,{passive:true}); ba.addEventListener('touchmove',pos,{passive:true});
+  })();
+</script>
 </body>
 </html>
